@@ -17,17 +17,15 @@ intents = discord.Intents.all()
 intents.members=True
 BOT=commands.Bot(command_prefix='$', intents=intents)
 
-my_id= config["ID"] #439868796442771481
-listen_guild=config["SERVER"] #936773423613509633
-listen_channel=config["CHANNEL"] #1002882044742864977
-# archive_channel=1002896576630489149
+my_id= config["ID"] 
+listen_guild=config["SERVER"] 
+listen_channel=config["CHANNEL"] 
+
 
 _time_=datetime.datetime.now()
 
 @BOT.event
 async def on_ready():
-    await BOT.change_presence(activity=discord.Game(name="Never be alright ~Seon"))
-
     names__=""
     for guild in BOT.guilds:
         names__=names__+"\t"+guild.name+" || "+str(guild.member_count)+"\n"
