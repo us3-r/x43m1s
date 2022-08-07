@@ -113,7 +113,7 @@ async def on_message(message):
             # close app
             elif 'close' in message.content or 'Close' in message.content:
                 app=message.content.split(':')[1]
-                if '.exe' in app:
+                if '.exe' in app or isfile(app):
                     pass
                 else:
                     app=app+'.exe'
