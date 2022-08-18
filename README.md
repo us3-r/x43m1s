@@ -43,7 +43,7 @@ Firstly you will need a discord bot token
     "SERVER": "SERVER ID" # server ID [int]
 }
 ```
-<br><br>Lastly make shore that the `config.json` and `functions.py` are in the same directory as the `x43m1s.py`; If they are not make shore to change the lines:<br>**ln: 6** ` from functions import ` to ` from "path to functions.py" import *` <br>**ln: 10** `f=open('config.json','r')` to ``f=open('path-to-config.json','r')`<br>
+<br><br>Lastly make shore that the `config.json` and `functions.py` are in the same directory as the `x43m1s.py`; If they are not make shore to change the lines:<br>**ln: 6** ` from functions import ` to ` from "path to functions.py" import *` <br>**ln: 10** `f=open('config.json','r')` to `f=open('path-to-config.json','r')`<br>
 
 
 
