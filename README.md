@@ -18,7 +18,7 @@ A program whit which you can, with a help of a discord bot use your computer fro
 
 ## HOW TO RUN<br>
 
-To run the main `(x43m1s.py)` file the following libraries are required:
+To run the main `(x43m1s.py)` file download the following libraries are required:
   <br>    -> [discord](https://pypi.org/project/discord.py/)
   <br>    -> [datetime](https://pypi.org/project/DateTime/)
 <br>Or
