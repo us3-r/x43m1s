@@ -9,12 +9,12 @@ A program whit which you can, with a help of a discord bot use your computer fro
 <br>‽ `Sleep` > sleep your computer
 <br>‽ `Restart` > restart your computer 
 
-<br>‽ `Run "app-name.exe/file-path(C:/a/b/c/test.txt)` > open an app or a file
-<br>‽ `Close "app-name/file-path(C:/a/b/c/test.txt)` > close an app or a file
+<br>‽ `Run app-name.exe (or) file-path(C:/a/b/c/test.txt)` > open an app or a file
+<br>‽ `Close app-name (or) file-path(C:/a/b/c/test.txt)` > close an app or a file
 <br>‽ `Shot` > get a live screenshot of your computer
-<br>‽ `open :"website-name"` > opens a website
-<br>‽ `search :"anythoing"` > searches for your input and opens the firs video on youtube
-<br>‽ `cd | "directori" | "skip" | "file-format` > shows all files and folders in given directory, in you only wish to get specific files, specify that in "file-format" eg.(.txt) and set "T" to skip other files/folders (example: `cd | C:\a\b\c | F | `
+<br>‽ `open : website-name` > opens a website
+<br>‽ `search : "anything"` > searches for your input and opens the firs video on youtube
+<br>‽ `cd | "directori" | "skip[T/F]" | "file-format` > shows all files and folders in given directory, in you only wish to get specific files, specify that in "file-format" eg.(.txt) and set to "T" to skip other files/folders (example: `cd | C:\a\b\c | F | `
 
 ## HOW TO RUN<br>
 
