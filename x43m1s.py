@@ -7,7 +7,7 @@ from functions import *
 import json
 
 
-f=open('config.json','r')
+f=open("config.json",'r')
 config=json.load(f)
 CMD=False
 
