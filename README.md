@@ -19,8 +19,7 @@ A program whit which you can, with a help of a discord bot use your computer fro
 ## HOW TO RUN<br>
 
 To run the main `(x43m1s.py)` file download the following libraries are required:
-  <br>    -> [discord](https://pypi.org/project/discord.py/)
-  <br>    -> [datetime](https://pypi.org/project/DateTime/)
+  <br>    -> 43req.txt using the `pip install -r 43req.txt` (or any other command)
 <br>Or
 <br>You can compile it into an ``.exe`` file eg.([auto-py-to-exe](https://pypi.org/project/auto-py-to-exe/))
 <br>By making a `.exe` file you can easily add the auto start option so the program starts as soon as you turn your computer on.
