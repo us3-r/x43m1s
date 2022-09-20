@@ -16,6 +16,8 @@ class currentCommand:
 class Command:
     def __init__(self) -> None:
         pass
+    
+#   using the os library it turns off your computer
     def turnOff():
         try:
             import os
@@ -25,18 +27,23 @@ class Command:
             os.system("shutdown -s")
         except Exception as e:
             return e
+#   using the os library it puts your computer to sleep mode
     def sleep():
         try:
             import os
             os.system("rundll32.exe powrprof.dll,SetSuspendState Sleep")
         except Exception as e:
             return e
+#   using the os library it restarts your computer
     def restart():
         try:
             import os
             os.system("shutdown -r -t 0")
         except Exception as e:
             return e
+        
+#   using the subprocess library it executes a cmd command to check for active proceses, which it stores in proc.stdout
+#   and we can loop throug them to list them all out *for line in proc.stdout*
     def taskManeger():
         try:
             import subprocess
@@ -49,6 +56,9 @@ class Command:
             return open_apps
         except Exception as e:
             return e
+
+#   using a subprocess library to execute a powershell command to open an app
+#   or a file (providet that the filepath is given)
     def run(app):
         try:
             import subprocess
@@ -57,12 +67,17 @@ class Command:
             return proc
         except Exception as e:
             return e
+        
+#   using the os library it kills the provided aplication
     def forceStop(app):
         try:
             import os
             os.system(f'TASKKILL /F /IM {app} ')
         except Exception as e:
             return e
+
+#   the screenShot function is made to take a full screen screenshot of your device, it creates its own folder in the 
+#   directory that you have put the main script file to which it saves the image (it also sends it to discord when it takes it)
     def screenShot(dir=os.getcwd(), folder='x43m1s_screenshots'):
         fullpath=f'{dir}\\{folder}'
         # print(fullpath)
@@ -80,28 +95,25 @@ class Command:
         except Exception as e:
             print(e)
             return e
-    def openWebsite(url,yt=None):
-        if yt==None:
+        
+#   opens a website :)
+    def openWebsite(url=None):
+        if url!=None:
             url_=f'https://www.{url}.com'
-
             try:
                 import webbrowser
                 webbrowser.open(url_)
             except Exception as e:
                 return e
-        elif url==None:
-            try:
-                import webbrowser
-                webbrowser.open(yt)
-            except Exception as e:
-                return e
+        else:return "None url given"
 
-
+#   searches on youtube, and opens the first result 
     def searchYT(query):
         try:
             from youtubesearchpython import VideosSearch as vhs
             search=vhs(query, limit=1)
             json_=search.result()
+            # get the link of the first of the search 
             jsonDC=json_["result"][0]["link"]
             Command.openWebsite(None,jsonDC)
 
@@ -109,24 +121,28 @@ class Command:
             print(e)
             return e
 
-
+#   using for loops it walks through the specified path and gets all the folders and files in that directory
     def seeFile(path:str, FF:str, skip:bool ) -> list:
         folders=[]
         files=[]
         selected=[]
+        # if path is not spacefied it 
         if path==None:
             path=os.getcwd()
         if FF==None:
             skip=False
-        print(f'>> {path}, {FF}, {skip}')
+            
+        # checks for folders, files in the directory
         if os.path.exists(path):
             for item in os.listdir(path):
                 if os.path.isdir(path+'\\'+item):
+                    # if path is a folder it appends it to folder list
                     folders.append(item)
                 else:
                     return_ = f"{item} | {os.path.join(path, item)}"
+                    # if its a file it appends it to file list
                     files.append(return_)
-
+            #  it goes through files to check for any files ending with requested ending and if they do, it adds them to selected list
             for item in files:
                 if FF is not None:
                     if item.endswith(FF):
@@ -135,13 +151,10 @@ class Command:
                         pass
                 else:break
             if skip:
-                print("1")
                 return None, None, selected
             else:
                 if selected == []:
-                    print("2")
                     return folders, files, None
                 else:return folders, files, selected
         else:
-            print("3")
             return None, None, None
