@@ -26,6 +26,8 @@ _time_=datetime.datetime.now()
 
 @BOT.event
 async def on_ready():
+#   When the bot starts running it will display the Server it is in, 
+#   its name and the channel id from which the commands will be read
     names__=""
     for guild in BOT.guilds:
         names__=names__+"\t"+guild.name+" || "+str(guild.member_count)+"\n"
@@ -35,11 +37,13 @@ async def on_ready():
 
 @BOT.event
 async def on_message(message):
-    # await message.channel.purge(limit=1000000, check=lambda m: m.author == user)
+#   on every message the bot check for the author; the id of the server and the channel
+#   if the message author is bot, ignores the message.
     if message.author==BOT.user:
         return
     if message.author.id == my_id:
         if message.guild.id==listen_guild and message.channel.id==listen_channel:
+#           if the message autro is not the bot, and the channel id and the server id are correct the bot will proced to proces the message
             user = my_id
             content=message.content
             print(f'\n{content}')
@@ -185,28 +189,24 @@ async def on_message(message):
                     path=message.content.split(' ')[2]
                 except IndexError:
                     path=None
-                # test1=message.content.split(' ')[3]
                 try:
                     skip=message.content.split(' ')[4]
                 except IndexError:
                     skip=None
-                # test3=message.content.split(' ')[5]
                 try:
                     select=message.content.split(' ')[6]
                 except IndexError:
                     select=None
-                # print(f'{path} {skip} {select}')
                 if skip=='t' or skip=='T':
                     skip=True
                 else:
                     skip=False
 
-                # print(len(f1),len(f2),len(f3),len(f4),len(f5))
                 Embed=discord.Embed(title=f'{message.content} ', description=f'[{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]', color=0x00ff00)
                 Embed.add_field(name=f'{message.author.mention} path :: {path}',value='Reading now',inline = False)
                 await message.channel.send(embed=Embed)
                 folders,files,selected=Command.seeFile(path, select, skip)
-                # print(folders,files,selected)
+
                 Embed=discord.Embed(title=f'{message.content} ',description=f'[{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]', color=0x00ff00)
                 Embed.add_field(name=f'PATH : : {path}',value='Reading done',inline = False)
                 Embed.add_field(name=f'￣￣￣￣￣￣￣￣￣￣￣|\nFOLDERS : : ', value=f'⁓⁓⁓⁓~⁓⁓⁓⁓⁓⁓⁓⁓⁓⁓⁓⁓⁓~⁓⁓⁓',inline = False)
