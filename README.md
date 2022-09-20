@@ -51,4 +51,4 @@ Firstly you will need a discord bot token
 <br>× Add more commands 
 
 ## ISSUES
-<br>× Issues with opening apps with only the filename given ("example.exe")
+<br>× Issues with opening apps with only the filename given ("example.exe") 
