@@ -49,3 +49,6 @@ Firstly you will need a discord bot token
 ## TO DO
 <br>× Add better error recognition if the app does not open
 <br>× Add more commands 
+
+## ISSUES
+<br>× Issues with opening apps with only the filename given ("example.exe")
