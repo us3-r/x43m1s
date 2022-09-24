@@ -3,18 +3,24 @@ A program whit which you can, with a help of a discord bot use your computer fro
 
 
 ## COMMANDS
-
-<br>‽ `Tasks` > shows open programs
-<br>‽ `Turn off` > turn of your computer
-<br>‽ `Sleep` > sleep your computer
-<br>‽ `Restart` > restart your computer 
-
-<br>‽ `Run app-name.exe (or) file-path(C:/a/b/c/test.txt)` > open an app or a file
-<br>‽ `Close app-name (or) file-path(C:/a/b/c/test.txt)` > close an app or a file
-<br>‽ `Shot` > get a live screenshot of your computer
-<br>‽ `open : website-name` > opens a website
-<br>‽ `search : "anything"` > searches for your input and opens the firs video on youtube
-<br>‽ `cd | "directori" | "skip[T/F]" | "file-format` > shows all files and folders in given directory, in you only wish to get specific files, specify that in "file-format" eg.(.txt) and set to "T" to skip other files/folders (example: `cd | C:\a\b\c | F | `
+<br> COMPUTER MANAGE
+<br>‽ `xtasks` > shows open programs
+<br>‽ `xturnoff` > turn of your computer
+<br>‽ `xsleep` > sleep your computer
+<br>‽ `xrestart` > restart your computer
+<br>‽ `xcd dir skip spec.files` > shows all files and folders in given directory, in you only wish to get specific files, specify that in "file-format" eg.(.txt) and set to "T" to skip other files/folders (example: `cd | C:\a\b\c | F | `
+<br>
+<br> TIMER (schedule when your pc turns off/restarts or goes to sleep
+<br>‽ `xtimerstart action time days` > action(off,restart,sleep) | time(hh:mm) | days(any day of the week starting with capital letter)
+<br>‽ `xtimerstop` > stops active timer
+<br>‽ `xtimershow` > shows current timer settings (can be overwriten with `xtimerstart`)
+<br>
+<br> MISC
+<br>‽ `xrun app-name.exe (or) C:/a/b/c/test.txt` > open an app or a file
+<br>‽ `xclose app-name (or) C:/a/b/c/test.txt` > close an app or a file
+<br>‽ `xshot` > get a live screenshot of your computer
+<br>‽ `xopenweb "example"` > opens a website
+<br>‽ `xopenyt "example"` > searches for your input and opens the firs video on youtube
 
 ## HOW TO RUN<br>
 
@@ -48,7 +54,8 @@ Firstly you will need a discord bot token
 
 ## TO DO
 <br>× Add better error recognition if the app does not open
-<br>× Add more commands 
+<br>× Add more commands
+<br>× Add option for multiple timers
 
 ## ISSUES
-<br>× Issues with opening apps with only the filename given ("example.exe") 
+<br>× Issues with opening apps with only the filename given and are not in directory ("example.exe") 
