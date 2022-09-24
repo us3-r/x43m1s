@@ -74,7 +74,11 @@ async def restart(ctx):
     await ctx.channel.send(embed=Embed)
 @BOT.command()
 async def timerstart(ctx, func:str="off", time:str=None, day:str=None):
-    import datetime
+    import os
+    try:
+        os.mkdir("timer")
+    except FileExistsError:
+        pass
     file=f"timer\\const.json"
     if day!=None:days=day.split(',')
     else:days=[]
@@ -94,7 +98,7 @@ async def timerstart(ctx, func:str="off", time:str=None, day:str=None):
     await ctx.channel.send(embed=Embed)
 @BOT.command()
 async def timerstop(ctx):
-    timerLoop.stop()
+    timerLoop.cancel()
     Embed=discord.Embed(title=f"Stopping timer :: [{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]",description="______", color=0xf0e68c)
     await ctx.channel.send(embed=Embed)
 @BOT.command()
