@@ -75,27 +75,35 @@ async def restart(ctx):
 @BOT.command()
 async def timerstart(ctx, func:str="off", time:str=None, day:str=None):
     import os
-    try:
-        os.mkdir("timer")
-    except FileExistsError:
-        pass
-    file=f"timer\\const.json"
-    if day!=None:days=day.split(',')
-    else:days=[]
-    import json
-    timer_values = {
-        "time":time,
-        "days":days,
-        "func":func
-    }
-    js_obj = json.dumps(timer_values, indent=4)
-    with open(file, "w") as out_json:
-        out_json.write(js_obj)
-    Embed=discord.Embed(title=f"Starting timer :: [{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]",description="______", color=0xf0e68c)
-    Embed.add_field(name=":: Given values ::",value=f"TIME ->{time}\nDAYS ->{days}\nACTION->{func}",inline=False)
-    timerLoop.start()
-    Embed.add_field(name="LOOP STARTED",value="success",inline=False)
-    await ctx.channel.send(embed=Embed)
+    available_functions = [
+        "off",
+        "restart",
+        "sleep"
+    ]
+    if func in available_functions:
+        try:
+            os.mkdir("timer")
+        except FileExistsError:
+            pass
+        file=f"timer\\const.json"
+        if day!=None:days=day.split(',')
+        else:days=[]
+        import json
+        timer_values = {
+            "time":time,
+            "days":days,
+            "func":func
+        }
+        js_obj = json.dumps(timer_values, indent=4)
+        with open(file, "w") as out_json:
+            out_json.write(js_obj)
+        Embed=discord.Embed(title=f"Starting timer :: [{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]",description="______", color=0xf0e68c)
+        Embed.add_field(name=":: Given values ::",value=f"TIME ->{time}\nDAYS ->{days}\nACTION->{func}",inline=False)
+        timerLoop.start()
+        Embed.add_field(name="LOOP STARTED",value="success",inline=False)
+        await ctx.channel.send(embed=Embed)
+    else:
+        await ctx.channel.send(f"**The function you requested is not supported:**\n*-> your function: {func}*\n-> available functions {available_functions}")
 @BOT.command()
 async def timerstop(ctx):
     timerLoop.cancel()
