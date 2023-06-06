@@ -50,18 +50,17 @@ class Command:
 
 #   using the subprocess library it executes a cmd command to check for active proceses, which it stores in proc.stdout
 #   and we can loop throug them to list them all out *for line in proc.stdout*
-    def taskManeger():
-        try:
-            import subprocess
-            cmd = 'powershell "gps | where {$_.MainWindowTitle } | select Description'
-            proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-            open_apps = []
-            for line in proc.stdout:
-                if line.rstrip():
-                    open_apps.append(line.decode().rstrip())
-            return open_apps
-        except Exception as e:
-            return e
+    def taskManeger()->list:
+        import psutil
+        app_data=[]
+        for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
+            try:
+                pinfo = proc.as_dict(attrs=['pid', 'name', 'cpu_percent', 'memory_percent'])
+                app_data.append(f"PID: {pinfo['pid']}  Name: {pinfo['name']}  CPU%: {pinfo['cpu_percent']}  Memory%: {pinfo['memory_percent']}")
+            except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                pass
+        return app_data
+
 
 #   using a subprocess library to execute a powershell command to open an app
 #   or a file (providet that the filepath is given)
