@@ -13,21 +13,20 @@ config = json.load(f)
 CMD = False
 
 
-TOKEN = config['DISCORD_TOKEN']
+TOKEN =config['DISCORD_TOKEN']
 intents = discord.Intents.all()
 intents.members = True
 BOT = commands.Bot(command_prefix='$', intents=intents)
 
-my_id = config["ID"]
-listen_guild = config["SERVER"]
-listen_channel = config["CHANNEL"]
-
+my_id =config["ID"]
+listen_guild =config["SERVER"]
+listen_channel =config["CHANNEL"]
 _time_ = datetime.datetime.now()
 
 
 @BOT.event
 async def on_ready():
-    await BOT.change_presence(activity=discord.Game(name="gaymin"))
+    await BOT.change_presence(activity=discord.Game(name="(⊙_⊙;)"))
     names__ = ""
     for guild in BOT.guilds:
         names__ = names__+"\t"+guild.name+" || "+str(guild.member_count)+"\n"
@@ -43,8 +42,7 @@ async def task(ctx):
         title=f"Task Maneger", description=f'[{_time_.day}.{_time_.month} || {_time_.hour}:{_time_.minute}]', color=0xf0e68c)
     channel = BOT.get_channel(listen_channel)
     for task in tasks:
-        Embed.add_field(name=task, value='\0', inline=False)
-    await ctx.channel.send(embed=Embed)
+        ctx.channel.send(task)
 
 
 @BOT.command()
