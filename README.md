@@ -1,3 +1,5 @@
+# [Code is OUTDATED...It is in proces of being rewritten]
+
 # x43m1s
 A program whit which you can, with a help of a discord bot use your computer from anywhere.
 
