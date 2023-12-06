@@ -1,4 +1,4 @@
-In a proces of re-writing 
+In a process of re-writing 
 # x43m1s
 A program whit which you can, with a help of a discord bot use your computer from anywhere.
 
